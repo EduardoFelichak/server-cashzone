@@ -1,0 +1,25 @@
+{
+  "name": "servercashzone",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "test": "vitest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.12.11",
+    "prisma": "^5.13.0",
+    "tsx": "^4.10.0",
+    "typescript": "^5.4.5",
+    "vitest": "^1.6.0"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.13.0",
+    "fastify": "^4.27.0",
+    "zod": "^3.23.8"
+  }
+}
