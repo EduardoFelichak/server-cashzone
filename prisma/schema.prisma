@@ -37,7 +37,7 @@ model Transaction {
   month            DateTime
   categoryId       Int
   recurrent        Boolean
-  recurrenceMonths Int
+  recurrenceMonths Int?
   userId           String
 
   category Category @relation(fields: [categoryId], references: [categoryId])
