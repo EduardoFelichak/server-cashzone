@@ -13,16 +13,15 @@ export async function createTransaction(app: FastifyInstance)
                 return new Date(arg as string)
             }, z.date()),
             categoryId: z.number().int(),
-            recurrent: z.boolean(),
             recurrenceMonths: z.number().optional(),
             userId: z.string()
         })
 
-        const { title, value, month, categoryId, recurrent, recurrenceMonths, userId } = createTransactionBody.parse(request.body)
+        const { title, value, month, categoryId, recurrenceMonths, userId } = createTransactionBody.parse(request.body)
 
-        if (recurrent && recurrenceMonths) {
+        if (recurrenceMonths) {
             let transactionIds = [];
-            for(let i = 1; i <= recurrenceMonths; i++) {
+            for(let i = 0; i <= recurrenceMonths; i++) {
                 const recurringMonth = getRecurrentMonth(month.toISOString(), i);
                 const transaction = await prisma.transaction.create({
                     data: {
@@ -30,7 +29,6 @@ export async function createTransaction(app: FastifyInstance)
                         value,
                         month: recurringMonth,
                         categoryId,
-                        recurrent,
                         recurrenceMonths: i,
                         userId,
                     }
@@ -45,8 +43,6 @@ export async function createTransaction(app: FastifyInstance)
                     value,
                     month,
                     categoryId,
-                    recurrent,
-                    recurrenceMonths,
                     userId,
                 }
             })
