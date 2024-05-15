@@ -6,10 +6,10 @@ export async function getTransactions(app: FastifyInstance)
 {
     app.get('/transactions/:userId/:month', async (request, reply)=>{
         const getParams = z.object({
-            userId: z.string().uuid(),
-            month: z.preprocess((arg) =>{
-                return new Date(arg as string)
-            }, z.date())
+            userId: z.string().cuid(),
+            month: z.preprocess((arg) => {
+                return new Date(arg + 'T00:00:00')
+            }, z.date()),
         })
 
         const { userId, month } = getParams.parse(request.params)

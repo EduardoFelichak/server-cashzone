@@ -9,8 +9,8 @@ export async function createTransaction(app: FastifyInstance)
         const createTransactionBody = z.object({
             title: z.string(),
             value: z.number(),
-            month: z.preprocess((arg) =>{
-                return new Date(arg as string)
+            month: z.preprocess((arg) => {
+                return new Date(arg + 'T00:00:00')
             }, z.date()),
             categoryId: z.number().int(),
             recurrenceMonths: z.number().optional(),

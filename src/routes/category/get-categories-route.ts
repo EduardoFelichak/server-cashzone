@@ -6,7 +6,7 @@ export async function getCategories(app: FastifyInstance)
 {
     app.get('/categories/:userId', async (request, reply)=>{
         const getUserParams = z.object({
-            userId: z.string().uuid(),
+            userId: z.string().cuid(),
         })
 
         const { userId } = getUserParams.parse(request.params)

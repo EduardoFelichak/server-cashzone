@@ -9,7 +9,7 @@ export async function createCategory(app: FastifyInstance)
             title: z.string(),
             icon: z.string(),
             type: z.string(),
-            userId: z.string()        
+            userId: z.string().cuid()        
         })    
 
         const { title, icon, type, userId } = createCategoryBody.parse(request.body)
