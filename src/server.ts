@@ -6,7 +6,7 @@ import { getCategories } from "./http/routes/category/get-categories-route"
 import { createTransaction } from "./http/routes/transaction/create-transaction-route"
 import { getTransactions, getTransactionsPerMonth } from "./http/routes/transaction/get-transactions-route"
 import { createBudget } from "./http/routes/budget/create-budget-route"
-import { getBudgets } from "./http/routes/budget/get-budgets-route"
+import { getBudgets, getBudgetsPerMonth } from "./http/routes/budget/get-budgets-route"
 
 const app = fastify()
 
@@ -26,6 +26,7 @@ app.register(getTransactionsPerMonth)
 //for budget
 app.register(createBudget)
 app.register(getBudgets)
+app.register(getBudgetsPerMonth)
 
 app.listen({ port: 3333 }).then(() => {
     console.log('HTTP server running!')
