@@ -1,9 +1,9 @@
 import { fastify } from "fastify"
-import { createUser } from "./routes/user/create-user-route"
-import { createCategory } from "./routes/category/create-category-route"
-import { getCategories } from "./routes/category/get-categories-route"
-import { createTransaction } from "./routes/transaction/create-transaction-route"
-import { getTransactions } from "./routes/transaction/get-transactions-route"
+import { createUser } from "./http/routes/user/create-user-route"
+import { createCategory } from "./http/routes/category/create-category-route"
+import { getCategories } from "./http/routes/category/get-categories-route"
+import { createTransaction } from "./http/routes/transaction/create-transaction-route"
+import { getTransactions } from "./http/routes/transaction/get-transactions-route"
 
 
 const app = fastify()

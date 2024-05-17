@@ -1,7 +1,7 @@
 import { z } from "zod"
-import { prisma } from "../../lib/prisma"
+import { prisma } from "../../../lib/prisma"
 import { FastifyInstance } from "fastify"
-import { getRecurrentMonth } from "../../lib/get-recurrent-month"
+import { getRecurrentMonth } from "../../../lib/get-recurrent-month"
 
 export async function createTransaction(app: FastifyInstance)
 {
