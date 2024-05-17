@@ -46,6 +46,6 @@ export async function getTransactionsPerMonth(app: FastifyInstance)
         if(!transactions)
             return reply.status(400).send({ message: 'Transactions not found for this user.' }) 
 
-            return reply.send({ transactions })
+        return reply.send({ transactions })
     })
 }
