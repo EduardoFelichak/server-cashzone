@@ -48,8 +48,7 @@ model Budget {
   title       String
   value       Float
   categoryId  Int
-  initialDate DateTime
-  finalDate   DateTime
+  month       DateTime
   userId      String
 
   category Category @relation(fields: [categoryId], references: [categoryId])
