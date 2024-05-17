@@ -9,24 +9,20 @@ export async function createBudget(app: FastifyInstance)
             title: z.string(),
             value: z.number(),
             categoryId: z.number(),
-            initialDate: z.preprocess((arg) => {
-                return new Date(arg + 'T00:00:00')
-            }, z.date()),
-            finalDate: z.preprocess((arg) => {
+            month: z.preprocess((arg) => {
                 return new Date(arg + 'T00:00:00')
             }, z.date()),
             userId: z.string().cuid(),
         })
 
-        const { title, value, categoryId, initialDate, finalDate, userId } = createBudgetBody.parse(request.body)
+        const { title, value, categoryId, month, userId } = createBudgetBody.parse(request.body)
 
         const budget = await prisma.budget.create({
             data: {
                 title,
                 value,
                 categoryId,
-                initialDate,
-                finalDate,
+                month,
                 userId,
             }
         })
