@@ -5,7 +5,7 @@ import { createCategory } from "./http/routes/category/create-category-route"
 import { getCategories } from "./http/routes/category/get-categories-route"
 import { createTransaction } from "./http/routes/transaction/create-transaction-route"
 import { getTransactions, getTransactionsPerMonth } from "./http/routes/transaction/get-transactions-route"
-import { createBudget } from "./http/routes/budget/create-budget"
+import { createBudget } from "./http/routes/budget/create-budget-route"
 
 const app = fastify()
 
