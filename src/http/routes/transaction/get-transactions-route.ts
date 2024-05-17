@@ -4,6 +4,28 @@ import { FastifyInstance } from "fastify"
 
 export async function getTransactions(app: FastifyInstance)
 {
+    app.get('/transactions/:userId', async (request, reply)=>{
+        const getParams = z.object({
+            userId: z.string().cuid(),
+        })
+
+        const { userId } = getParams.parse(request.params)
+
+        const transactions = await prisma.transaction.findMany({
+            where:{
+                userId,
+            }
+        })
+
+        if (!transactions)
+            return reply.status(400).send({ message: 'Transactions not found for this user.' })   
+        
+        return reply.send({ transactions })
+    })
+}
+
+export async function getTransactionsPerMonth(app: FastifyInstance)
+{
     app.get('/transactions/:userId/:month', async (request, reply)=>{
         const getParams = z.object({
             userId: z.string().cuid(),
@@ -16,8 +38,8 @@ export async function getTransactions(app: FastifyInstance)
 
         const transactions = await prisma.transaction.findMany({
             where:{
-                userId: userId,
-                month: month, 
+                userId,
+                month, 
             }
         })
 
