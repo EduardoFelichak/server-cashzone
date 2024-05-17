@@ -14,7 +14,7 @@ export async function createTransaction(app: FastifyInstance)
             }, z.date()),
             categoryId: z.number().int(),
             recurrenceMonths: z.number().optional(),
-            userId: z.string()
+            userId: z.string().cuid(),
         })
 
         const { title, value, month, categoryId, recurrenceMonths, userId } = createTransactionBody.parse(request.body)
