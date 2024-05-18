@@ -1,6 +1,7 @@
 import { fastify } from "fastify"
 import { createUser } from "./http/routes/user/create-user-route"
 import { getUser } from "./http/routes/user/get-user-route"
+import { updateUser } from "./http/routes/user/update-user-route"
 import { createCategory } from "./http/routes/category/create-category-route"
 import { getCategories } from "./http/routes/category/get-categories-route"
 import { createTransaction } from "./http/routes/transaction/create-transaction-route"
@@ -13,6 +14,7 @@ const app = fastify()
 //for user
 app.register(createUser)
 app.register(getUser)
+app.register(updateUser)
 
 //for category
 app.register(createCategory)
