@@ -4,7 +4,7 @@ import { FastifyInstance } from "fastify"
 
 export async function deleteCategory(app: FastifyInstance)
 {
-    app.delete('categories/:userId/:categoryId', async (request, reply) =>{
+    app.delete('/categories/:userId/:categoryId', async (request, reply) =>{
         const getParams = z.object({
             userId: z.string().cuid(),
             categoryId: z.number(),
