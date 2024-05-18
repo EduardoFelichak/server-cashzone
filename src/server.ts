@@ -5,6 +5,7 @@ import { updateUser } from "./http/routes/user/update-user-route"
 import { deleteUser } from "./http/routes/user/delete-user-route"
 import { createCategory } from "./http/routes/category/create-category-route"
 import { getCategories } from "./http/routes/category/get-categories-route"
+import { updateCategory } from "./http/routes/category/update-category-route"
 import { createTransaction } from "./http/routes/transaction/create-transaction-route"
 import { getTransactions, getTransactionsPerMonth } from "./http/routes/transaction/get-transactions-route"
 import { createBudget } from "./http/routes/budget/create-budget-route"
@@ -21,6 +22,7 @@ app.register(deleteUser)
 //for category
 app.register(createCategory)
 app.register(getCategories)
+app.register(updateCategory)
 
 //for transaction
 app.register(createTransaction)
