@@ -2,13 +2,13 @@ import { fastify } from "fastify"
 import { createUser } from "./http/routes/user/create-user-route"
 import { getUser } from "./http/routes/user/get-user-route"
 import { updateUser } from "./http/routes/user/update-user-route"
+import { deleteUser } from "./http/routes/user/delete-user-route"
 import { createCategory } from "./http/routes/category/create-category-route"
 import { getCategories } from "./http/routes/category/get-categories-route"
 import { createTransaction } from "./http/routes/transaction/create-transaction-route"
 import { getTransactions, getTransactionsPerMonth } from "./http/routes/transaction/get-transactions-route"
 import { createBudget } from "./http/routes/budget/create-budget-route"
 import { getBudgets, getBudgetsPerMonth } from "./http/routes/budget/get-budgets-route"
-import { deleteUser } from "./http/routes/user/delete-user-route"
 
 const app = fastify()
 
