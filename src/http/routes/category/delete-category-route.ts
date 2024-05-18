@@ -7,7 +7,7 @@ export async function deleteCategory(app: FastifyInstance)
     app.delete('/categories/:userId/:categoryId', async (request, reply) =>{
         const getParams = z.object({
             userId: z.string().cuid(),
-            categoryId: z.number(),
+            categoryId: z.string(),
         })
 
         const { userId, categoryId } = getParams.parse(request.params)
@@ -15,7 +15,7 @@ export async function deleteCategory(app: FastifyInstance)
         const category = await prisma.category.delete({
             where: {
                 userId, 
-                categoryId,
+                categoryId: Number(categoryId),
             }
         })
 

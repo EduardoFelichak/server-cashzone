@@ -7,7 +7,7 @@ export async function updateCategory(app: FastifyInstance)
     app.put('/categories/:userId/:categoryId', async (request, reply) =>{
         const getParams = z.object({
             userId: z.string().cuid(),
-            categoryId: z.number()
+            categoryId: z.string()
         })
 
         const getCategoryBody = z.object({
@@ -22,7 +22,7 @@ export async function updateCategory(app: FastifyInstance)
         const category = await prisma.category.update({
             where:{
                 userId: params.userId,
-                categoryId: params.categoryId,
+                categoryId: Number(params.categoryId),
             },
             data:{
                 title,
