@@ -8,6 +8,7 @@ import { createTransaction } from "./http/routes/transaction/create-transaction-
 import { getTransactions, getTransactionsPerMonth } from "./http/routes/transaction/get-transactions-route"
 import { createBudget } from "./http/routes/budget/create-budget-route"
 import { getBudgets, getBudgetsPerMonth } from "./http/routes/budget/get-budgets-route"
+import { deleteUser } from "./http/routes/user/delete-user-route"
 
 const app = fastify()
 
@@ -15,6 +16,7 @@ const app = fastify()
 app.register(createUser)
 app.register(getUser)
 app.register(updateUser)
+app.register(deleteUser)
 
 //for category
 app.register(createCategory)
