@@ -21,6 +21,7 @@ export async function createTransaction(app: FastifyInstance)
 
         if (recurrenceMonths) {
             let transactionIds = [];
+            let originalId = 0
             for(let i = 0; i <= recurrenceMonths; i++) {
                 const recurringMonth = getRecurrentMonth(month.toISOString(), i);
                 const transaction = await prisma.transaction.create({
@@ -30,9 +31,13 @@ export async function createTransaction(app: FastifyInstance)
                         month: recurringMonth,
                         categoryId,
                         recurrenceMonths: i,
+                        originalId,
                         userId,
                     }
                 })
+                if(i == 0)
+                    originalId = transaction.transactionId
+
                 transactionIds.push(transaction.transactionId);  // Assumindo que 'id' é a propriedade correta
             }
             return reply.status(201).send({ allTransactions: transactionIds });

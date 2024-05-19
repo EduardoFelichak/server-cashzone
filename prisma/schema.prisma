@@ -37,6 +37,7 @@ model Transaction {
   month            DateTime
   categoryId       Int
   recurrenceMonths Int?
+  originalId       Int?
   userId           String
 
   category Category @relation(fields: [categoryId], references: [categoryId], onDelete: Cascade)
