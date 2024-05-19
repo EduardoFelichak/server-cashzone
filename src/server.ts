@@ -9,10 +9,11 @@ import { updateCategory } from "./http/routes/category/update-category-route"
 import { deleteCategory } from "./http/routes/category/delete-category-route"
 import { createTransaction } from "./http/routes/transaction/create-transaction-route"
 import { getTransactions, getTransactionsPerMonth } from "./http/routes/transaction/get-transactions-route"
-import { createBudget } from "./http/routes/budget/create-budget-route"
-import { getBudgets, getBudgetsPerMonth } from "./http/routes/budget/get-budgets-route"
+import { getCountRecurrence } from "./http/routes/transaction/get-count-recurrence-route"
 import { updateTransaction } from "./http/routes/transaction/update-transaction-route"
 import { deleteTransaction } from "./http/routes/transaction/delete-transaction-route"
+import { createBudget } from "./http/routes/budget/create-budget-route"
+import { getBudgets, getBudgetsPerMonth } from "./http/routes/budget/get-budgets-route"
 
 const app = fastify()
 
@@ -32,6 +33,7 @@ app.register(deleteCategory)
 app.register(createTransaction)
 app.register(getTransactions)
 app.register(getTransactionsPerMonth)
+app.register(getCountRecurrence)
 app.register(updateTransaction)
 app.register(deleteTransaction)
 
