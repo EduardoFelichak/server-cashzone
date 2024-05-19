@@ -14,6 +14,7 @@ import { updateTransaction } from "./http/routes/transaction/update-transaction-
 import { deleteTransaction } from "./http/routes/transaction/delete-transaction-route"
 import { createBudget } from "./http/routes/budget/create-budget-route"
 import { getBudgets, getBudgetsPerMonth } from "./http/routes/budget/get-budgets-route"
+import { updateBudget } from "./http/routes/budget/update-budget-route"
 
 const app = fastify()
 
@@ -41,6 +42,7 @@ app.register(deleteTransaction)
 app.register(createBudget)
 app.register(getBudgets)
 app.register(getBudgetsPerMonth)
+app.register(updateBudget)
 
 app.listen({ port: 3333 }).then(() => {
     console.log('HTTP server running!')
