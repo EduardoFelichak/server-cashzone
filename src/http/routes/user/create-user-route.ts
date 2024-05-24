@@ -8,7 +8,7 @@ export async function createUser(app: FastifyInstance)
         const createUserBody = z.object({
             firstName: z.string(), 
             lastName: z.string(),
-            email: z.string(),
+            email: z.string().email(),
         })
 
         const { firstName, lastName, email } = createUserBody.parse(request.body)
